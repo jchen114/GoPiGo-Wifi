@@ -10,6 +10,7 @@ class GPGManager:
 
     def __init__(self):
         # stuff
+	print 'initialize GPGManager'
 
     def go_forward(self):
         fwd()

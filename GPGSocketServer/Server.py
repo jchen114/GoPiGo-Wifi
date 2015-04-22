@@ -1,6 +1,6 @@
 __author__ = 'Kingpin'
 from tornado import websocket, web, ioloop
-
+from Manager import GPGManager
 
 class EchoSocketHandler(websocket.WebSocketHandler):
 
@@ -19,6 +19,8 @@ class EchoSocketHandler(websocket.WebSocketHandler):
 
 class GPGSocketHandler(websocket.WebSocketHandler):
 
+    gpgM = None    
+
     def check_origin(self, origin):
         return True
 
@@ -26,17 +28,23 @@ class GPGSocketHandler(websocket.WebSocketHandler):
         print "Received: " + message
         if message == 'UP':
             print 'fwd()'
+	    self.gpgM.go_forward()
         if message == 'DOWN':
             print 'bwd()'
+	    self.gpgM.go_backward()
         if message == 'LEFT':
             print 'left()'
+	    self.gpgM.turn_left()
         if message == 'RIGHT':
             print 'right()'
+	    self.gpgM.turn_right()
         if message == 'STOP':
             print 'stop()'
+	    self.gpgM.stop()
 
 
     def open(self):
+	self.gpgM = GPGManager()
         self.write_message(u"Hello")
 
     def on_close(self):
