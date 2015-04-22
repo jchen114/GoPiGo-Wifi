@@ -10,4 +10,8 @@ Drive GoPiGo through the interwebs
     - a : left
     - x : stop
 
-
+- Dependencies for Python:
+    - The venv folder should have the dependencies for the client, so you should be able to use the python intepreter found in there, otherwise:
+        - ws4py
+        - tkinter
+    - The server requires Tornado webserver, as well as the standard gopigo library that ships with the dexter industries distribution for the raspberry pi. 

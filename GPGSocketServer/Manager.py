@@ -6,6 +6,7 @@ import sys
 import atexit
 atexit.register(stop)
 
+
 class GPGManager:
 
     def __init__(self):
