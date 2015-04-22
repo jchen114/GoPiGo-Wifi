@@ -36,6 +36,9 @@ class KeyboardHandler:
         elif event.char == 'd':
             print 'RIGHT'
             self.socketCli.send('RIGHT')
+        elif event.char == 'x':
+            print 'STOP'
+            self.socketCli.send('STOP')
         #print 'Delegate got %s\n' % (event.char, )
 
 
